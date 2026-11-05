@@ -24,12 +24,9 @@
 
 #portada-charla("Taller de iniciación", "Git y GitHub", "AISC x GUL UC3M")
 
-// ponytail: el QR y el enlace apuntan al evento id=19 (el del año pasado). Falta el id nuevo:
-//   qrencode -t SVG -m 0 -o img/qr-slides.svg "<enlace>"  y cambia image7.png y este enlace.
 #let qr-slides = diapo("slides", "Las diapositivas", [Por si quieres seguirlas desde el portátil.], {
-  en(214, 0, image("img/image7.png", width: 226pt))
-  en(214, 95, box(width: 226pt, height: 36pt, fill: white, stroke: 2pt + rojo, align(center + horizon, t("PENDIENTE", size: 18pt, fill: rojo, weight: "bold"))))
-  en(0, 240, box(width: ancho-libre * 1pt, align(center, t("PENDIENTE: falta el enlace de este año", size: 12pt, fill: rojo, weight: "bold"))))
+  en(214, 0, image("img/qr-slides.svg", width: 226pt))
+  en(0, 240, box(width: ancho-libre * 1pt, align(center, link("https://github.com/guluc3m/charlas-git-2026-27/blob/main/charla-git.pdf", t("github.com/guluc3m/charlas-git-2026-27", size: 11pt, font: mono)))))
 })
 #qr-slides
 
@@ -509,15 +506,6 @@
   ([Resuélvelo en VS Code, termina el merge y súbelo], "git add hola.txt; git commit --no-edit; git push"),
 ), [Con `git log --oneline --graph` ves cómo se juntan las dos ramas.])
 
-// ============ Extra si sobra tiempo ============
-#ejercicio("extra", "Extra: tu primera pull request", [Si nos sobra tiempo. Todos al mismo repo, y las PR van saliendo en directo.], (
-  ([Haz fork desde la web], [github.com/guluc3m/actividad-charla-git]),
-  ([Clona tu fork], `git clone <url-de-tu-fork>`.text),
-  ([Crea `<NIA>.txt` con el mensaje que quieras], none),
-  ([Guárdalo y súbelo], `git add .; git commit -m "Añade mi NIA"; git push`.text),
-  ([Abre la pull request desde la web], none),
-), [Tu PR sale en el repo de todos.])
-
 // ============ Cierre ============
 #qr-slides
 
@@ -534,9 +522,9 @@
     col("AISC x Google",
       image("img/qr-evento50.svg", width: 100%),
       [Inside Google: Ciberseguridad y Datos \ 10/11 · 14:15 · Aula 2.3.A03]),
-    col("Telegram",
-      rect(width: 100%, height: 100%, stroke: 1.5pt + azul, align(center + horizon, t("Grupo de Telegram del GUL", size: 11pt, fill: azul-texto, weight: "bold"))),
-      [gul.uc3m.es]),
+    col("Telegram del GUL",
+      image("img/qr-telegram-gul.svg", width: 100%),
+      link("https://t.me/+nOvlp5l8yFU0MDA0", t("t.me/+nOvlp5l8yFU0MDA0", size: 9.5pt, font: mono, fill: gris))),
   ))
   en(0, 228, box(width: ancho-libre * 1pt, align(center, { link("https://aiscmadrid.com", t("aiscmadrid.com", size: 11pt, font: mono)); h(30pt); link("https://gul.uc3m.es", t("gul.uc3m.es", size: 11pt, font: mono)) })))
 })
